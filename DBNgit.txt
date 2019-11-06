@@ -33,4 +33,31 @@ git commit --amend
 브랜치를 전환한 후 수행한 작업을 add&commit한 후, 
 `git log`를 통해 commit 로그를 살펴보면 (HEAD->`새로만든branch``) 인 것을 확인할 수 있다.
 `git checkout master` 后 `git merge <브랜치명>` 을 통해 합칠 수 있다.
-merge후 다시 `git log`를 통해 commit내역을 살펴보면
+merge후 다시 `git log`를 통해 commit내역을 살펴보면 head가 바뀐 것을 확인할 수 있다.
+병합이 끝난 branch는 그 기능을 다 했기 때문에 `git branch -d <브랜치명>` 으로 제거해준다.
+------------------------------------------------------------
+[Git 브랜치 충돌(Conflict) 처리하기]
+일반적으로 두 개 이상의 branch에서 동일한 파일을 수정했을때, 그 파일의 내용이 다르면 merge를
+할때 충돌이 발생할 수 있다.
+실습시작!
+`git branch develop`
+`git checkout develop`
+파일 수정 후 add & commit
+`git log` 찍고 확인
+`git checkout master`
+다시 파일 수정 후 add & commit
+이상태에서 `git log` 를 찍어보면 master브랜치만 보이고 develop브랜치는 보이지 않는것을 확인
+다시 `git checkout develop`으로 브랜치변경 후 `git log` 를 해봐도, develop만 보이는 것을 확인
+더 이상 같은 상태가 아니기 때문에 각각의 브랜치만 보이는 것
+병합을 시도해보자!
+일단 `git checkout master` 后 (일반적으로 master브랜치에서 병합한다.)
+`git merge develop` 을 시도하면 conflict가 발생한다.
+이때는 해당 파일을 열어보면 git에서 소스코드가 다른 부분을 명시해주는것을 확인할수 있다.
+수동으로 수정 한 후, 저장해준다.
+다시 shell로 돌아와 add & commit을 해주면 성공적으로 병합이 수행된 것이다,
+`git merge develop`를 입력하면 "Already up to date" 라고 뜨는 것을 확인할 수 있다.
+'git log' 를 해보면 master브랜치는 develop브랜치를 병합했기 때문에, master브랜치와 develop브랜치가
+한 화면에 보이는 것을 확인할 수 있다.
+master브랜치는 성공적으로 병합을 수행한 상태이기 때문에 `git branch -d develop` 으로 develop브랜치를 삭제해준다.
+`git branch` 해보면 master브랜치만 남아있는 것을 확인가능하다.
+`git log` 로도 확인해보고, 이상이 없다면 push까지 수행해준다.
