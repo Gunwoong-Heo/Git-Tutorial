@@ -23,4 +23,5 @@ RemoteRepository
 `git log` 깃 로그내역 확인
 `git reset --hard <hash>` 해당하는 커밋으로 리셋하고 그 이후의 내역들은 삭제된다
 그러나 이상태에서 localRepository에서 push를 하게 되면 reject가 되는 것을 확인할수있다.
-`git push -f` 를 통해서 강제로 push를 할 수 있다.
+`git push -f` 를 통해서 강제로 push를 할 수 있다.(사용상 주의 요망)
+git commit --amend 
