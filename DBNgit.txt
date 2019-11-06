@@ -4,7 +4,7 @@ git config --global user.email gjrjsdnd1129@gmail.com
 `git config --list` 으로 확인
 git Clone `원격repository주소`
 git add <file>
-git commit -m <file>
+git commit -m "커밋메시지"
 git push
 ------------------------------------------------------------
 [Git의 영역]
