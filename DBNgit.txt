@@ -1,0 +1,6 @@
+﻿[Git 설치 및 사용법 익히기]
+git config --global user.name Gunwoong-Heo
+git config --global user.email gjrjsdnd1129@gmail.com
+`git config --list` 으로 확인
+git Clone `원격repository주소`
+------------------------------------------------------------
