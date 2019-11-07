@@ -61,3 +61,27 @@ merge후 다시 `git log`를 통해 commit내역을 살펴보면 head가 바뀐 
 master브랜치는 성공적으로 병합을 수행한 상태이기 때문에 `git branch -d develop` 으로 develop브랜치를 삭제해준다.
 `git branch` 해보면 master브랜치만 남아있는 것을 확인가능하다.
 `git log` 로도 확인해보고, 이상이 없다면 push까지 수행해준다.
+------------------------------------------------------------
+[Git 원격 저장소(Remote Repository) 관리하기]
+`git remote`  원격 저장소 확인
+`git remote show <원격저장소名>`  원격저장소 자세한 정보확인
+'git remote add <원격저장소名> <원격지주소url>' 로 remote 저장소를 추가가능
+`git remote -v` 명령어로 전체 원격저장소list를 볼수 있다.
+`git remote rename <원격저장소名> <바꿀名>` 로 이름을 바꿀 수 있다.
+`git log origin/master` 같은 식으로 특정한 원격저장소에 대해서 명령을 수행할 수 있다.
+`git remote rm <원격저장소名>` 으로 등록된 원격저장소를 목록에서 제거할 수 있다.
+------------------------------------------------------------
+[Git 로그(Log) 다루기]
+`git log --stat`  
+`git log -p -3`
+`git log --pretty=oneline`
+`git log --pretty=format:"%h -> %an, %ar : %s" --graph`
+------------------------------------------------------------
+[Git Rebase 명령으로 특정한 커밋을 수정/삭제하기]
+`git rebase -i HEAD~3`
+pick을 적절하기 수정후 :wq
+해당 커밋에 대해 수정사항을 입력한후 :wq
+다시 `git log`를 찍어서 확인해본다.
+`git rebase -i <커밋hash>` 를 입력하면 해당 커밋 이후의 내용들을 출력해준다.
+`git rebase -i HEAD~3`
+------------------------------------------------------------
